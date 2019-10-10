@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="suite-group">
+	<test name="test-group">
+		<groups>
+			<run>
+				<include name="g1" />
+				<!-- <exclude name="g2" /> -->
+			</run>
+		</groups>
+		<classes>
+			<class name="com.offline.TestGrp" />
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.offline.TestDep">
+        <methods>
+          <include name="testMethod2"/>
+          <include name="init"/>
+          <include name="testMethod1"/>
+          <include name="testMethod3"/>
+          <include name="testMethod4"/>
+        </methods>
+      </class> <!-- com.offline.TestDep -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

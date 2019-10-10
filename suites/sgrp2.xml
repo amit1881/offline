@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="suite-group">
+	<test name="test-group">
+		<groups>
+			<define name="All">
+				<include name="g1" />
+				<include name="g2" />
+			</define>
+			<run>
+				<include name="All" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.offline.TestGrp" />
+		</classes>
+	</test>
+</suite>
