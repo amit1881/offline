@@ -37,7 +37,8 @@ public class Test {
 		//int n5=Integer.parseInt(n3);
 		
 		System.out.println(Integer.parseInt("5873532"));
-		System.out.println(Float.parseFloat(n1.replaceAll(",", "")));
+		Float num1=Float.parseFloat(n1.replaceAll(",", ""));
+		System.out.println(num1.toString());
 		System.out.println(Float.parseFloat("5873532.0"));
 		System.out.println(n4);
 		//System.out.println(n5);

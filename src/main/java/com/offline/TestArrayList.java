@@ -113,7 +113,16 @@ public class TestArrayList {
 			System.out.println(str);
 		}
 		
-		HashSet<String> hs=new HashSet<String>(al);
+		HashSet<String> hs=new HashSet<String>();
+		
+		System.out.println("Duplicates in arraylist are::");
+		for(String str:al){
+			if(!hs.add(str)){
+				System.out.println(str+"test".concat("test2"));
+			}
+		}
+		System.out.println("--------------------");
+		
 		ArrayList<String> alwd=new ArrayList<String>(hs);
 		System.out.println("ARRAY LIST WITHOUT DUPLICATE ELEMENTS");
 		for(String str:alwd){

@@ -117,7 +117,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>3.13</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.sikuli</groupId>
@@ -162,7 +166,18 @@
 			<artifactId>hudson-core</artifactId>
 			<version>3.0.0-M2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.40.2</version>
+		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports --><!-- pom.xml -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
 
 	</dependencies>
 </project>

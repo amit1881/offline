@@ -23,4 +23,14 @@ public class ReadJson {
 //     return itr;
 //	   }
 
+//	@BeforeMethod()
+//	public void Dbinit() {
+//		long startTime = System.currentTimeMillis();
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+//		driver = new ChromeDriver(chromeOptions);
+//		long endTime = System.currentTimeMillis();
+//		long duration = (endTime - startTime);
+//		System.out.println("Time taken by BeforeMethod : " + duration);
+//	}
 }

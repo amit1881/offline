@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.FindBy;
 
 public class TestFirefoxProfile {
 
@@ -25,6 +28,8 @@ public class TestFirefoxProfile {
 	FirefoxOptions fo=new FirefoxOptions();
 	WebDriver driver=null;
 	WebDriver driver1=null;
+	@FindBy(id="")
+	private WebElement ele=null;
 	
 	@Test
 	public void testProfile(){
@@ -71,5 +76,11 @@ public class TestFirefoxProfile {
 		WebElement element=driver.findElement(By.id(""));
 		js.executeScript("arguments[0].scrollIntoView(true)", element);
 	}
+	
+	@Test
+	public void testDropDown(){
+		Select dd=new Select(driver.findElement(By.id("id")));
+	}
+	
 	
 }
