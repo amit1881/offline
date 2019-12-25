@@ -16,21 +16,26 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertEquals;
 
-public class ExcelReader {
+public class ExcelReader extends TestLog4j{
+	
+	Logger log = Logger.getLogger(ExcelReader.class);
 
-	private static File file=null;
-	private static FileInputStream fis=null;
+	private static File file, f1, f2=null;
+	private static FileInputStream fis, fis1, fis2=null;
 	
-	private static XSSFWorkbook workbook=null;
-	private static XSSFSheet worksheet=null;
+	private static XSSFWorkbook workbook,workbook1, workbook2=null;
+	private static XSSFSheet worksheet, worksheet1, worksheet2=null;
 	
-	public static void main(String a[]) throws IOException{
-		//readFromExcel("testdata/emp.xlsx", "employee");
-		readFromExcelWithoutIteartor("testdata/emp.xlsx", "employee");
-	}
+//	public static void main(String a[]) throws IOException{
+//		//readFromExcel("testdata/emp.xlsx", "employee");
+//		readFromExcelWithoutIteartor("testdata/emp.xlsx", "employee");
+//	}
 	
 	public static Object[][] readFromExcel(String filePath, String sheetName) throws IOException{
 		
@@ -112,7 +117,7 @@ public class ExcelReader {
 		return employeeData;
 	}
 	
-public static Iterator<Object>[] readFromExcelWithoutIteartor1(String filePath, String sheetName) throws IOException{
+    public static Iterator<Object>[] readFromExcelWithoutIteartor1(String filePath, String sheetName) throws IOException{
 		
 		List<Object> listOfNames=new ArrayList<Object>();
 		Map<Object, List<Object>> m1=new HashMap<Object, List<Object>>();
@@ -147,4 +152,35 @@ public static Iterator<Object>[] readFromExcelWithoutIteartor1(String filePath, 
 		Iterator<Object>[] it=(Iterator<Object>[]) m1.get("employee name").toArray();
 		return it;
 	}
+
+    @Test
+    public void compareExcel() throws IOException{
+    	f1=new File("testdata/emp1.xlsx");
+        fis1=new FileInputStream(f1);
+        workbook1=new XSSFWorkbook(fis1);
+        worksheet1=workbook1.getSheetAt(0);
+        int rowCount=worksheet1.getPhysicalNumberOfRows();
+		System.out.println(rowCount);
+		int cellCount=worksheet1.getRow(0).getLastCellNum();
+		System.out.println(cellCount);
+		f2=new File("testdata/emp2.xlsx");
+        fis2=new FileInputStream(f2);
+        workbook2=new XSSFWorkbook(fis2);
+        worksheet2=workbook2.getSheetAt(0);
+        assertEquals(rowCount,worksheet2.getPhysicalNumberOfRows());
+        assertEquals(cellCount,worksheet2.getRow(0).getLastCellNum());        
+        XSSFRow row1, row2=null;
+		XSSFCell cell1, cell2=null;
+		for(int i=0;i<rowCount;i++){
+			row1=worksheet1.getRow(i);
+			row2=worksheet2.getRow(i);
+			for(int j=0;j<cellCount;j++){
+				cell1=row1.getCell(j);
+				cell2=row2.getCell(j);
+				log.info("--------------Comparing::"+new DataFormatter().formatCellValue(cell1)+"----------------"+new DataFormatter().formatCellValue(cell2));
+				assertEquals(new DataFormatter().formatCellValue(cell1),new DataFormatter().formatCellValue(cell2));
+			}
+		}
+    }
+
 }

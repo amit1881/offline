@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class TestDataProvider extends TestLog4j{
 	
-	//Logger log = Logger.getLogger(TestDataProvider.class);
+	Logger log = Logger.getLogger(TestDataProvider.class);
 
 	@DataProvider(name="employee")
 	public Object[][] testDP() throws IOException{
@@ -29,13 +29,13 @@ public class TestDataProvider extends TestLog4j{
 		return emp;
 	}
 	
-	@Test(dataProvider="employee", enabled=false)  
+	@Test(dataProvider="employee")  
 	public void getEmployeeData(String id, String name, String salary){
-		//log.info("--------------record for "+id+"----------------");
+		log.info("--------------record for "+id+"----------------");
 		System.out.println(id+"\t"+name+"\t"+salary);
 	}
 	
-	@Test(dataProvider="employee1")  
+	@Test(dataProvider="employee", enabled=false)  
 	public void getEmployeeData1(String name){
 		//log.info("--------------record for "+id+"----------------");
 		System.out.println(name);
