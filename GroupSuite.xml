@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="suite ---inclusion of groups">
+	<test name="grouping of tests">
+		<groups>
+			<run>
+				<include name="public" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.offline.TestGroup" />
+		</classes>
+	</test>
+</suite>
